@@ -1,7 +1,7 @@
 import 'package:objective_management/model/objective.dart';
 import 'package:objective_management/model/repository/objective.dart';
 import 'package:objective_management/model/step.dart';
-import 'package:objective_management/model/text.dart';
+import 'package:objective_management/model/description.dart';
 
 class CreateObjectiveInput {
   final List<StepDescription> steps;

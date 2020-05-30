@@ -1,4 +1,4 @@
-import 'package:objective_management/model/text.dart';
+import 'package:objective_management/model/description.dart';
 
 // Evaluable は評価が可能なもの表します。
 abstract class Evaluable<E> {

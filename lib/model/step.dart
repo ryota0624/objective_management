@@ -1,6 +1,6 @@
 // 目標のステップを表します。
 import 'package:objective_management/model/evaluation.dart';
-import 'package:objective_management/model/text.dart';
+import 'package:objective_management/model/description.dart';
 
 class Step extends Evaluable<Step> {
   final StepOrder order;
@@ -108,7 +108,6 @@ class Steps {
 
   Step first() => _sorted().first;
 
-  // TODO 進行中のものを取り出す。 inProgress
   List<Step> _sorted() {
     // TODO StepOrderに実装
     var list = _values.values.toList();

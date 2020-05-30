@@ -1,7 +1,7 @@
 // 目標を表します。
 import 'package:objective_management/model/errors.dart';
 import 'package:objective_management/model/step.dart';
-import 'package:objective_management/model/text.dart';
+import 'package:objective_management/model/description.dart';
 
 import 'evaluation.dart';
 

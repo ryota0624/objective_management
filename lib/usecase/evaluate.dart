@@ -2,7 +2,6 @@ import 'package:objective_management/model/evaluation.dart';
 import 'package:objective_management/model/objective.dart';
 import 'package:objective_management/model/repository/objective.dart';
 import 'package:objective_management/model/step.dart';
-import 'package:objective_management/usecase/application_time.dart';
 
 abstract class EvaluateTarget {
   Objective evaluate(Objective objective, Evaluation evaluation);
@@ -40,7 +39,7 @@ class EvaluateInput {
   EvaluateInput(this.objectiveID, this.target, this.evaluation);
 }
 
-abstract class Evaluate with ApplicationTime {
+class Evaluate {
   final ObjectiveRepository objectiveRepository;
 
   Evaluate(this.objectiveRepository);
