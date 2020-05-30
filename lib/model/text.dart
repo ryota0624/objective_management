@@ -1,34 +1,34 @@
-class Text {
+class Description {
   final int maxLength;
   final String _string;
 
-  Text(this.maxLength, this._string);
+  Description(this.maxLength, this._string);
 }
 
-class GoalText extends Text {
-  GoalText(String str) : super(30, str);
+class GoalDescription extends Description {
+  GoalDescription(String str) : super(30, str);
 }
 
-class StepText extends Text {
-  StepText(String str) : super(20, str);
+class StepDescription extends Description {
+  StepDescription(String str) : super(20, str);
 }
 
-class StepEvaluationText extends Text {
-  StepEvaluationText(String str) : super(20, str);
+class StepEvaluationDescription extends Description {
+  StepEvaluationDescription(String str) : super(20, str);
 }
 
-class ResultText extends Text {
-  ResultText(String str): super(20, str);
+class ResultDescription extends Description {
+  ResultDescription(String str): super(20, str);
 }
 
-class ResultEvaluationText extends Text {
-  ResultEvaluationText(String str): super(20, str);
+class ResultEvaluationDescription extends Description {
+  ResultEvaluationDescription(String str): super(20, str);
 }
 
-class ObjectiveText extends Text {
-  ObjectiveText(String str) : super(150, str);
+class ObjectiveDescription extends Description {
+  ObjectiveDescription(String str) : super(150, str);
 }
 
-class ObjectiveEvaluationText extends Text {
-  ObjectiveEvaluationText(String str) : super(150, str);
+class ObjectiveEvaluationDescription extends Description {
+  ObjectiveEvaluationDescription(String str) : super(150, str);
 }
