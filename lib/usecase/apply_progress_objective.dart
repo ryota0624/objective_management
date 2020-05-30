@@ -2,7 +2,7 @@ import 'package:objective_management/model/objective.dart';
 import 'package:objective_management/model/repository/objective.dart';
 import 'package:objective_management/model/step.dart';
 import 'package:objective_management/model/text.dart';
-import 'package:objective_management/usecase/applicatoin_time.dart';
+import 'package:objective_management/usecase/application_time.dart';
 
 enum ProgressType { completed, skip }
 

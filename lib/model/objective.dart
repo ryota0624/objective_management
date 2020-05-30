@@ -1,4 +1,5 @@
 // 目標を表します。
+import 'package:objective_management/model/errors.dart';
 import 'package:objective_management/model/step.dart';
 import 'package:objective_management/model/text.dart';
 
@@ -29,6 +30,13 @@ class Objective extends Evaluable<Objective> {
 
   Objective withSteps(Steps steps) =>
       Objective._(id, steps, goal, period, _evaluation, result, description);
+
+  Objective withResult(Result result) {
+    if (!steps.isAllFinished()) {
+      throw PreconditionError('all steps should finished');
+    }
+    return Objective._(id, steps, goal, period, _evaluation, result, description);
+  }
 
   Objective._(
     this.id,

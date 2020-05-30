@@ -132,10 +132,10 @@ class Steps {
       DateTime now, Step Function(DateTime, Step) process) {
     final step = inProgress();
     final completedStep = process(now, step);
-    final updated = _updateStep(completedStep);
+    final updated = updateStep(completedStep);
     if (updated._values.containsKey(completedStep.order.next())) {
       final next = updated._values[completedStep.order.next()];
-      return _updateStep(next.start(now));
+      return updateStep(next.start(now));
     } else {
       return updated;
     }
@@ -165,11 +165,11 @@ class Steps {
 
   Step getByOrder(StepOrder o) => _values[o];
 
-  Steps _updateStep(Step s) {
+  Steps updateStep(Step s) {
     var updated = Map.from(_values);
     updated[s.order] = s;
     return Steps(updated);
   }
 
-  Steps add(Step s) => _updateStep(s);
+  Steps add(Step s) => updateStep(s);
 }
