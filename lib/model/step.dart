@@ -41,7 +41,9 @@ class StatusTransition {
   // 完了までの時間 等のStatusの変遷に関する計算をする
   final List<StepStatus> _statuses;
 
-  StatusTransition(this._statuses);
+  StatusTransition(this._statuses) {
+    assert(_statuses.isNotEmpty);
+  }
 
   StepStatus current() => _statuses.last;
 
@@ -145,7 +147,9 @@ class Steps {
 
   final Map<StepOrder, Step> _values;
 
-  Steps(this._values);
+  Steps(this._values) {
+    assert(_values.isNotEmpty);
+  }
 
   factory Steps.fromList(List<Step> list) {
     var _values = Map<StepOrder, Step>.identity();

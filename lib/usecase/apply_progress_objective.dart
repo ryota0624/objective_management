@@ -1,7 +1,6 @@
-import 'package:objective_management/model/objective.dart';
+import 'package:objective_management/model/id.dart';
 import 'package:objective_management/model/repository/objective.dart';
 import 'package:objective_management/model/step.dart';
-import 'package:objective_management/model/description.dart';
 import 'package:objective_management/usecase/application_time.dart';
 
 enum ProgressType { completed, skip }
@@ -26,14 +25,15 @@ class ApplyProgressObjectiveInput {
   ApplyProgressObjectiveInput(this.objectiveID, this.progressType);
 }
 
-abstract class ApplyProgressObjective with ApplicationTime {
+class ApplyProgressObjective  {
   final ObjectiveRepository objectiveRepository;
+  final ApplicationTime applicationTime;
 
-  ApplyProgressObjective(this.objectiveRepository);
+  ApplyProgressObjective(this.objectiveRepository, this.applicationTime);
 
   void execute(ApplyProgressObjectiveInput input) {
     final objective = objectiveRepository.get(input.objectiveID);
-    objective.withSteps(input.progressType.applyProgress(now(), objective.steps));
+    objective.withSteps(input.progressType.applyProgress(applicationTime.now(), objective.steps));
     objectiveRepository.store(objective);
   }
 }

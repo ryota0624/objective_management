@@ -1,3 +1,4 @@
+import 'package:objective_management/model/id.dart';
 import 'package:objective_management/model/objective.dart';
 import 'package:objective_management/model/repository/objective.dart';
 import 'package:objective_management/model/step.dart';
@@ -13,13 +14,14 @@ class CreateObjectiveInput {
 }
 class CreateObjective {
   final ObjectiveRepository objectiveRepository;
+  final ObjectiveIDFactory objectiveIDFactory;
 
-  CreateObjective(this.objectiveRepository);
+  CreateObjective(this.objectiveRepository, this.objectiveIDFactory);
 
   void execute(CreateObjectiveInput input) {
     final steps = Steps.fromDescriptionList(input.steps);
     final goal = Goal(input.goal);
-    final id = ObjectiveID.generate();
+    final id = objectiveIDFactory.create();
     final objective = Objective.create(id, steps, goal, input.period, input.description);
     objectiveRepository.store(objective);
   }

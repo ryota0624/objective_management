@@ -1,23 +1,12 @@
 // 目標を表します。
+
 import 'package:objective_management/model/errors.dart';
 import 'package:objective_management/model/step.dart';
 import 'package:objective_management/model/description.dart';
 
 import 'evaluation.dart';
+import 'id.dart';
 
-class ObjectiveID {
-  final String _value;
-
-  ObjectiveID(this._value);
-
-  @override
-  String toString() => _value;
-
-  factory ObjectiveID.generate() {
-    final randomStr = ''; // TODO ランダムにする
-    return ObjectiveID(randomStr);
-  }
-}
 
 class Objective extends Evaluable<Objective> {
   final ObjectiveID id;
@@ -77,8 +66,12 @@ class Objective extends Evaluable<Objective> {
 
 // 目標の開始から終了までの期間です。
 class Period {
-  DateTime start;
-  DateTime end;
+  final DateTime start;
+  final DateTime end;
+
+  Period(this.start, this.end) {
+    assert(start.millisecondsSinceEpoch < end.millisecondsSinceEpoch);
+  }
 }
 
 // 目標のゴールを表します。
